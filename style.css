@@ -1,4 +1,3 @@
-/* Configuração padrão */
 body {
     font-family: Arial, sans-serif;
     background-color: white;
@@ -9,12 +8,10 @@ body {
     padding: 0;
 }
 
-/* Oculta elementos quando necessário */
 .hidden {
     display: none;
 }
 
-/* Estilização da tela de login */
 .login-container, .app-container {
     max-width: 400px;
     margin: auto;
@@ -24,7 +21,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Botões */
 button {
     background-color: red;
     color: white;
@@ -37,13 +33,11 @@ button:hover {
     background-color: darkred;
 }
 
-/* Modo Noturno */
 .modo-noturno {
     background-color: black;
     color: white;
 }
 
-/* Responsividade */
 @media screen and (max-width: 600px) {
     .app-container {
         width: 90%;
