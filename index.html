@@ -9,7 +9,6 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Tela de Login -->
     <div class="login-container" id="login">
         <h2>Login</h2>
         <input type="text" id="prefixo" placeholder="Prefixo">
@@ -17,7 +16,6 @@
         <button onclick="login()">Entrar</button>
     </div>
 
-    <!-- Aplicação principal (oculta até o login) -->
     <div class="app-container hidden" id="app">
         <header>
             <h1>Sistema de Cobrador</h1>
@@ -25,9 +23,8 @@
             <button onclick="alternarModoNoturno()">🌙 Modo Noturno</button>
         </header>
 
-        <!-- Seleção da Viagem -->
         <div class="controls">
-            <label for="viagem">Selecione a viagem:</label>
+            <label for="viagem">Viagem Atual:</label>
             <select id="viagem">
                 <option value="1">Viagem 1</option>
                 <option value="2">Viagem 2</option>
@@ -43,42 +40,32 @@
             <input type="number" id="catraca">
 
             <button onclick="iniciarViagem()">Iniciar Viagem</button>
+            <div id="finalizar-container"></div>
         </div>
 
-        <!-- Cronômetro -->
         <div class="cronometro">
             <h2>Cronômetro</h2>
             <p id="tempo">00:00:00</p>
         </div>
 
-        <!-- Seção para cálculo de passageiros -->
         <div class="passageiros">
             <h2>Passageiros</h2>
             <p>Ida: <input type="number" id="ida" value="0"></p>
             <p>Volta: <input type="number" id="volta" value="0"></p>
             <button onclick="calcularTotal()">Calcular Total</button>
-            <p>Total: <span id="total">0</span></p>
+            <p>Total Passageiros: <span id="total">0</span></p>
         </div>
 
-        <!-- Seção para cálculo de pagamentos -->
         <div class="pagamentos">
             <h2>Pagamento</h2>
             <p>Dinheiro (R$ 7,40): <input type="number" id="dinheiro-pass" value="0"></p>
             <p>Cartão (R$ 7,40): <input type="number" id="cartao-pass" value="0"></p>
             <p>PIX (R$ 7,40): <input type="number" id="pix-pass" value="0"></p>
-            <button onclick="calcularPagamentoTotal()">Calcular Total de Pagamento</button>
-            <p>Total Dinheiro: <span id="total-dinheiro">R$ 0,00</span></p>
-            <p>Total Cartão: <span id="total-cartao">R$ 0,00</span></p>
-            <p>Total PIX: <span id="total-pix">R$ 0,00</span></p>
+            <button onclick="calcularPagamentoTotal()">Calcular Total</button>
             <p>Total Recebido: <span id="total-pagamento">R$ 0,00</span></p>
         </div>
 
-        <!-- Botões -->
         <button onclick="exportarPDF()">📄 Exportar PDF</button>
-        <button onclick="visualizarHistorico()">📜 Visualizar Histórico Diário</button>
     </div>
-
-    <!-- Contêiner para o histórico -->
-    <div id="historico-container" style="padding: 20px;"></div>
 </body>
 </html>
