@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cobrador</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div class="login-container" id="login">
+        <h2>Login</h2>
+        <input type="text" id="prefixo" placeholder="Prefixo">
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="login()">Entrar</button>
+    </div>
+
+    <!-- Aplicação principal (oculta até o login) -->
+    <div class="app-container hidden" id="app">
+        <header>
+            <h1>Sistema de Cobrador</h1>
+            <p id="data-atual"></p>
+            <button onclick="alternarModoNoturno()">🌙 Modo Noturno</button>
+        </header>
+
+        <!-- Seleção da Viagem -->
+        <div class="controls">
+            <label for="viagem">Selecione a viagem:</label>
+            <select id="viagem">
+                <option value="1">Viagem 1</option>
+                <option value="2">Viagem 2</option>
+                <option value="3">Viagem 3</option>
+                <option value="4">Viagem 4</option>
+                <option value="5">Viagem 5</option>
+                <option value="6">Viagem 6</option>
+                <option value="7">Viagem 7</option>
+                <option value="8">Viagem 8</option>
+            </select>
+
+            <label for="catraca">Número da Catraca:</label>
+            <input type="number" id="catraca">
+
+            <button onclick="iniciarViagem()">Iniciar Viagem</button>
+        </div>
+
+        <!-- Cronômetro -->
+        <div class="cronometro">
+            <h2>Cronômetro</h2>
+            <p id="tempo">00:00:00</p>
+        </div>
+
+        <!-- Seção para cálculo de passageiros -->
+        <div class="passageiros">
+            <h2>Passageiros</h2>
+            <p>Ida: <input type="number" id="ida" value="0"></p>
+            <p>Volta: <input type="number" id="volta" value="0"></p>
+            <button onclick="calcularTotal()">Calcular Total</button>
+            <p>Total: <span id="total">0</span></p>
+        </div>
+
+        <!-- Seção para cálculo de pagamentos -->
+        <div class="pagamentos">
+            <h2>Pagamento</h2>
+            <p>Dinheiro (R$ 7,40): <input type="number" id="dinheiro-pass" value="0"></p>
+            <p>Cartão (R$ 7,40): <input type="number" id="cartao-pass" value="0"></p>
+            <p>PIX (R$ 7,40): <input type="number" id="pix-pass" value="0"></p>
+            <button onclick="calcularPagamentoTotal()">Calcular Total de Pagamento</button>
+            <p>Total Dinheiro: <span id="total-dinheiro">R$ 0,00</span></p>
+            <p>Total Cartão: <span id="total-cartao">R$ 0,00</span></p>
+            <p>Total PIX: <span id="total-pix">R$ 0,00</span></p>
+            <p>Total Recebido: <span id="total-pagamento">R$ 0,00</span></p>
+        </div>
+
+        <!-- Botões -->
+        <button onclick="exportarPDF()">📄 Exportar PDF</button>
+        <button onclick="visualizarHistorico()">📜 Visualizar Histórico Diário</button>
+    </div>
+
+    <!-- Contêiner para o histórico -->
+    <div id="historico-container" style="padding: 20px;"></div>
+</body>
+</html>
